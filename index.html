@@ -1,0 +1,54 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="show">
+            {{ message }}
+        </p>
+        <p v-else="">
+            hidden text
+        </p>
+
+        <p v-show="show">
+            {{message}}
+        </p>
+
+        <ul> 
+            <li v-for="item in items">
+                {{item.text}}
+            </li> 
+        </ul>
+
+        <a v-bind:href="url">Dynamic link</a> 
+
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        const vm = {
+            el: '#app',
+            data()
+            {
+                return {
+                    message: 'Hello Vue!',
+                    show: true, 
+                    items:[
+                        {text: 'first element'}, 
+                        {text: 'second element'}, 
+                        {text: 'third element'}, 
+                    ], 
+                    url: "https://google.com"
+                }
+            }
+
+        }
+
+        const app = new Vue(vm)
+    </script>
+</body>
+
+</html>
