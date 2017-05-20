@@ -3,22 +3,42 @@
     <input v-model="query">
     <button type="button" @click="search">Search</button>
 
-    <div class="artist" v-for="result in results">
-      <div class="artist__name"> {{result.name}}</div>
-      <img class="artist__img" v-if="result.images.length" :src="result.images[0].url" :alt="result.name">
-      <p v-else>🚫 🌅</p>
-    </div>
+    <p v-show="!results.length"> no results </p>
+    <ul>
+      <li v-for="result in results"> 
+        <div class="artist">
+          <p class="artist__name"> {{result.name}}</p>
+
+          <img class="artist__img" v-if="result.images.length" :src="result.images[0].url" :alt="result.name">
+          <p v-else>🚫 🌅</p>
+        </div> 
+      </li>
+    </ul>
   </div>
 
 </template>
 
 <style scoped>
-    .artist {}
+    .artist {
+        width: 250px;
+        border: 1px solid black;
+        text-align: center;
+        margin: 10px;
+    }
     
     .artist__name {}
     
     .artist__img {
-        width: 50%;
+        width:60%;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex; 
+      flex-wrap: wrap; 
+    }
+    li{
+      flex:1;
     }
 </style>
 
