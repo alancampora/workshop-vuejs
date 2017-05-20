@@ -1,0 +1,38 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <button v-on:click="formatName">FormatName</button> 
+        <p>
+            {{name}}
+        </p>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        const vm = {
+            el: '#app',
+            data()
+            {
+                return {
+                    name: 'alan'
+               }
+            }, 
+            methods:{
+                formatName(){
+                    this.name = this.name.split(' ').join('-').toLowerCase();
+                }
+            }
+
+        }
+
+        const app = new Vue(vm)
+    </script>
+</body>
+
+</html>
