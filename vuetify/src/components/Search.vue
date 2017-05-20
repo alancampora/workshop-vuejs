@@ -2,6 +2,7 @@
   <div>
     <input v-model="query">
     <button type="button" @click="search">Search</button>
+    <a href="#" @click.prevent="reset">Reset</a>
 
     <p v-show="!results.length"> no results </p>
     <ul>
@@ -14,6 +15,7 @@
         </div> 
       </li>
     </ul>
+
   </div>
 
 </template>
@@ -65,6 +67,10 @@
                         console.log(res)
                         this.results = res.artists.items
                     })
+            }, 
+            reset(){
+                this.query=""; 
+                this.results=[];
             }
         }
     }
