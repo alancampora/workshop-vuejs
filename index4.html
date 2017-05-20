@@ -1,0 +1,46 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="app">
+        <person-item v-for="p in persons" :person="p">
+        </person-item>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+      Vue.component('person-item', { props:{ person:{
+                    Type: Object
+      }},
+         template: `<li> {{ person.name }}</li>`
+        })
+  
+       const vm = {
+            el: '#app',
+            data()
+            {
+                return {
+                    persons: [
+                    {
+                        name: 'Alan'
+                    },
+                    {
+                        name: 'Adrian'
+                    },
+                    {
+                        name: 'Vue'
+                    }]
+
+                }
+            },
+
+        }
+
+        const app = new Vue(vm)
+    </script>
+</body>
+
+</html>
