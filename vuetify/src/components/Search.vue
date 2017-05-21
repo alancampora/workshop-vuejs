@@ -73,6 +73,11 @@
                 return "" ;  
             }
         }, 
+        watch: {
+            query (current, prev) {
+                //console.log('current', current , 'prev', prev)
+            }
+        }, 
         methods:
         {
             search()
