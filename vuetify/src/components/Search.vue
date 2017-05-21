@@ -1,6 +1,7 @@
 <template lang="html">  
   <div>
-    <input v-model="query">
+    <loader v-show="isLoading"></loader>
+    <input v-model="query" @keyup.enter="search">
     <button type="button" @click="search">Search</button>
     <a href="#" @click.prevent="reset">Reset</a>
 
@@ -47,26 +48,32 @@
 
 <script>
     import spotify from '../services/spotify'
+    import Loader from './Loader.vue'
+
 
     export default
     {
         name: "Search",
+        components: { Loader }, 
         data()
         {
             return {
                 query: "",
-                results: []
+                results: [], 
+                isLoading: false
             }
         },
         methods:
         {
             search()
             {
+                this.isLoading = true;
                 spotify.search(this.query, 'artist')
                     .then(res =>
                     {
                         console.log(res)
                         this.results = res.artists.items
+                        this.isLoading = false
                     })
             }, 
             reset(){
