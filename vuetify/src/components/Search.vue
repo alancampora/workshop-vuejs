@@ -5,6 +5,7 @@
     <button type="button" @click="search">Search</button>
     <a href="#" @click.prevent="reset">Reset</a>
 
+    <small>{{found}}</small>
     <p v-show="!results.length"> no results </p>
     <ul>
       <li v-for="result in results"> 
@@ -63,6 +64,15 @@
                 isLoading: false
             }
         },
+        computed: {
+            found(){
+                var length = this.results.length
+                if(length > 0 ){
+                    return length + " results founded"; 
+                }
+                return "" ;  
+            }
+        }, 
         methods:
         {
             search()
