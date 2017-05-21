@@ -1,11 +1,11 @@
 <template lang="html">  
   <div>
     <loader v-show="isLoading"></loader>
+    <a href="#" @click.prevent="reset">x</a>
     <input v-model="query" @keyup.enter="search">
     <button type="button" @click="search">Search</button>
-    <a href="#" @click.prevent="reset">Reset</a>
-
     <small>{{found}}</small>
+
     <p v-show="!results.length"> no results </p>
     <ul>
       <li v-for="result in results"> 
