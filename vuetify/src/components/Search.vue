@@ -95,6 +95,14 @@
                 this.query=""; 
                 this.results=[];
             }
+        }, 
+        created(){
+            var path = location.pathname
+            if(path !== '/'){
+                this.query = path.substr(1)
+                this.search()            
+            }
+
         }
     }
 </script>
