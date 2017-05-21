@@ -10,8 +10,9 @@
         <div class="artist">
           <p class="artist__name"> {{result.name}}</p>
 
-          <img class="artist__img" v-if="result.images.length" :src="result.images[0].url" :alt="result.name">
-          <p v-else>🚫 🌅</p>
+          <img class="artist__img" 
+            v-if="result.images.length" :src="result.images[0].url" :alt="result.name">
+          <img v-else class="artist__img" src="http://www.bocanjrotc.com/wp-content/themes/remould/images/noimage-portfolio.png">
         </div> 
       </li>
     </ul>
@@ -31,7 +32,7 @@
     .artist__name {}
     
     .artist__img {
-        width:60%;
+        width:100%;
     }
 
     ul {
