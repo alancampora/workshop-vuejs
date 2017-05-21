@@ -8,15 +8,12 @@
 
     <p v-show="!results.length"> no results </p>
     <ul>
-      <li v-for="result in results"> 
-        <div class="artist">
-          <p class="artist__name"> {{result.name}}</p>
+      <artist v-for="artist in results" 
+        :key="artist.id"
+        :name="artist.name"
+        :images="artist.images"> 
 
-          <img class="artist__img" 
-            v-if="result.images.length" :src="result.images[0].url" :alt="result.name">
-          <img v-else class="artist__img" src="http://www.bocanjrotc.com/wp-content/themes/remould/images/noimage-portfolio.png">
-        </div> 
-      </li>
+      </artist>
     </ul>
 
   </div>
@@ -24,38 +21,22 @@
 </template>
 
 <style scoped>
-    .artist {
-        width: 250px;
-        border: 1px solid black;
-        text-align: center;
-        margin: 10px;
-    }
-    
-    .artist__name {}
-    
-    .artist__img {
-        width:100%;
-    }
-
     ul {
       list-style-type: none;
       display: flex; 
       flex-wrap: wrap; 
-    }
-    li{
-      flex:1;
     }
 </style>
 
 <script>
     import spotify from '../services/spotify'
     import Loader from './Loader.vue'
-
+    import Artist from './Artist.vue'
 
     export default
     {
         name: "Search",
-        components: { Loader }, 
+        components: { Loader, Artist}, 
         data()
         {
             return {
