@@ -1,10 +1,13 @@
 <template lang="html">  
-  <div>
+  <div class="search">
     <loader v-show="isLoading"></loader>
-    <a href="#" @click.prevent="reset">x</a>
-    <input v-model="query" @keyup.enter="search">
-    <button type="button" @click="search">Search</button>
-    <small>{{found}}</small>
+    
+    <div class="search__bar">
+        <a href="#" @click.prevent="reset">x</a>
+        <input v-model="query" @keyup.enter="search">
+        <button type="button" @click="search">Search</button>
+        <small>{{found}}</small>
+    </div>
 
     <p v-show="!results.length"> no results </p>
     <ul>
@@ -21,10 +24,17 @@
 </template>
 
 <style scoped>
+    .search{}
+    .search__bar{
+        text-align:center;
+    }
     ul {
       list-style-type: none;
       display: flex; 
       flex-wrap: wrap; 
+    }
+    a{
+        color:black;
     }
 </style>
 

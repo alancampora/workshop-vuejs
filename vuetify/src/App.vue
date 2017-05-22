@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app" id="app">
 
     <layout> 
         <top slot="top" 
@@ -23,10 +23,19 @@
     name: 'app',
     data(){
         return{
-            appName: "Vuetify"
+            appName: "VUETIFY"
         }
     }, 
     components: {Layout, Top, Bottom, Search}
   }
 
 </script>
+
+<style scoped>
+    .app{
+        font-family: 'Indie Flower', cursive;
+        font-size: 14pt;
+        background-color:white;
+        color:black;
+    }     
+</style>

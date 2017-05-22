@@ -19,10 +19,10 @@
 
 <style scoped>
 .top{
-    background-color:black; 
-    color:white;
+    text-align: center;
+    padding: 10px;
 }
-.top__title{
+.top__title {
     margin:0;
 }
 </style>
